@@ -1,6 +1,7 @@
-package br.com.htapp.database.entity.registro;
+package br.com.htapp.http.domain;
 
 import br.com.htapp.enums.TipoRefeicao;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,32 +11,18 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
-@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "TB_REG_REFEICAO")
-public class RegistroRefeicaoEntity {
+public class RegistroRefeicaoDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private long id;
-
-    @Column(name = "DT_REGISTRO")
     private LocalDateTime dataRegistro;
-
-    @Column(name = "TIPO_REFEICAO")
-    @Enumerated(EnumType.STRING)
     private TipoRefeicao tipoRefeicao;
-
-    @Column(name = "QUANTIDADE_GRAMAS")
+    @ApiModelProperty(example = "100")
     private Integer quantidadeEmGramas;
-
-    @Column(name = "DESCRICAO")
+    @ApiModelProperty(example = "Brocules")
     private String descricao;
-
-    @Column(name = "NR_CPF")
+    @ApiModelProperty(example = "35272352807")
     private String cpf;
-
 }

@@ -25,8 +25,6 @@ public class RegistroAtividadeFisicaController {
     public void save(@RequestBody RegistroAtividadeFisicaDTO dto) {
         usecase.save(dto);
     }
-    //    @GetMapping
-    //    @PutMapping
 
 
 }
