@@ -17,6 +17,7 @@ import javax.persistence.Enumerated;
 @NoArgsConstructor
 public class EnderecoDTO {
 
+    private long id;
     @ApiModelProperty(example = "07171100")
     private String cep;
     @ApiModelProperty(example = "ALPES")
@@ -33,8 +34,10 @@ public class EnderecoDTO {
     private String numeroLogradouro;
 
     public EnderecoDTO(EnderecoEntity entity) {
+        this.id = entity.getId();
         this.cep = entity.getCep();
         this.rua = entity.getRua();
+        this.municipio = entity.getMunicipio();
         this.bairro = entity.getBairro();
         this.estado = entity.getEstado();
         this.uf = entity.getUf();

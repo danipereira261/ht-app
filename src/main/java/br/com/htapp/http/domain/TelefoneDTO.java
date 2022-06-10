@@ -17,12 +17,14 @@ import javax.persistence.Enumerated;
 @NoArgsConstructor
 public class TelefoneDTO {
 
+    private long id;
     @ApiModelProperty(example = "11972026904")
     private String numero;
     @Enumerated(EnumType.STRING)
     private TipoTelefone tipoTelefone;
 
     public TelefoneDTO(TelefoneEntity entity) {
+        this.id = entity.getId();
         this.numero = entity.getNumero();
         this.tipoTelefone = entity.getTipoTelefone();
     }
