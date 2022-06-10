@@ -3,12 +3,11 @@ package br.com.htapp.usecase;
 import br.com.htapp.database.entity.pessoa.EnderecoEntity;
 import br.com.htapp.database.entity.pessoa.PessoaEntity;
 import br.com.htapp.database.entity.pessoa.TelefoneEntity;
-import br.com.htapp.database.repository.EnderecoRepository;
 import br.com.htapp.database.repository.PessoaRepository;
-import br.com.htapp.database.repository.TelefoneRepository;
 import br.com.htapp.exception.PessoaJaCadastradaException;
 import br.com.htapp.http.domain.EnderecoDTO;
 import br.com.htapp.http.domain.PessoaDTO;
+import br.com.htapp.http.domain.PessoaUpdateDTO;
 import br.com.htapp.http.domain.TelefoneDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,7 @@ public class PessoaUsecase {
                 .build();
     }
 
-    public void update(String cpf, PessoaDTO dto) {
+    public void update(String cpf, PessoaUpdateDTO dto) {
         PessoaEntity entity = repository.findByCpf(cpf);
 
         repository.save(
@@ -69,8 +68,6 @@ public class PessoaUsecase {
                         .dataNascimento(dto.getDataNascimento())
                         .cpf(dto.getCpf())
                         .email(dto.getEmail())
-                        .telefones(dto.getTelefones().stream().map(TelefoneEntity::new).collect(Collectors.toList()))
-                        .enderecos(dto.getEnderecos().stream().map(EnderecoEntity::new).collect(Collectors.toList()))
                         .build()
         );
 

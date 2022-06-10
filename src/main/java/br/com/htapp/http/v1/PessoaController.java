@@ -1,8 +1,10 @@
 package br.com.htapp.http.v1;
 
 import br.com.htapp.http.domain.PessoaDTO;
+import br.com.htapp.http.domain.PessoaUpdateDTO;
 import br.com.htapp.usecase.PessoaUsecase;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,17 +29,16 @@ public class PessoaController {
 
     @GetMapping(path = "/{cpf}")
     @ResponseStatus(HttpStatus.OK)
-    public PessoaDTO findByCpf(@RequestParam("cpf") String cpf) {
+    public PessoaDTO findByCpf(@RequestParam("cpf") @ApiParam(example = "35272352807") String cpf) {
         return usecase.findByCpf(cpf);
     }
 
     @PutMapping(path = "/{cpf}")
     @ResponseStatus(HttpStatus.OK)
     public void update(
-            @RequestParam("cpf") String cpf,
-            @RequestBody PessoaDTO dto
+            @RequestParam("cpf") @ApiParam(example = "35272352807") String cpf,
+            @RequestBody PessoaUpdateDTO dto
     ) {
         usecase.update(cpf, dto);
     }
-
 }
