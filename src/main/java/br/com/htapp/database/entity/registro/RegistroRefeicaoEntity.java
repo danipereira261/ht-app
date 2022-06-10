@@ -1,6 +1,5 @@
 package br.com.htapp.database.entity.registro;
 
-import br.com.htapp.database.entity.pessoa.PessoaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +27,6 @@ public class RegistroRefeicaoEntity {
     @Column(name = "MEDICAO")
     private String medicao;
 
-    @JoinColumn(name = "ID_PESSOA", referencedColumnName = "ID")
-    @OneToOne
-    private PessoaEntity pessoa;
+    @Column(name = "NR_CPF")
+    private String cpf;
 }

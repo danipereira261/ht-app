@@ -36,7 +36,6 @@ public class RegistroPressaoArterialEntity {
     @Column(name = "DESCRICAO")
     private String descricao;
 
-    @OneToOne
-    @JoinColumn(name = "ID_PESSOA", referencedColumnName = "ID")
-    private PessoaEntity pessoa;
+    @Column(name = "NR_CPF")
+    private String cpf;
 }

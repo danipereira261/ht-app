@@ -28,7 +28,6 @@ public class RegistroPesoEntity {
     @Column(name = "PESO")
     private Double peso;
 
-    @JoinColumn(name = "ID_PESSOA", referencedColumnName = "ID")
-    @OneToOne
-    private PessoaEntity pessoa;
+    @Column(name = "NR_CPF")
+    private String cpf;
 }
