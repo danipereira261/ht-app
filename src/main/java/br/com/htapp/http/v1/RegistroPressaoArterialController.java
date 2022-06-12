@@ -1,6 +1,5 @@
 package br.com.htapp.http.v1;
 
-import br.com.htapp.http.domain.RegistroPesoDTO;
 import br.com.htapp.http.domain.RegistroPressaoArterialDTO;
 import br.com.htapp.usecase.RegistroPressaoArterialUsecase;
 import io.swagger.annotations.Api;

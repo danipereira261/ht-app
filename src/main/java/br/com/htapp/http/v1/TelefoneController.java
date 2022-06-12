@@ -1,8 +1,6 @@
 package br.com.htapp.http.v1;
 
-import br.com.htapp.http.domain.EnderecoDTO;
 import br.com.htapp.http.domain.TelefoneDTO;
-import br.com.htapp.usecase.EnderecoUsecase;
 import br.com.htapp.usecase.TelefoneUsecase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;

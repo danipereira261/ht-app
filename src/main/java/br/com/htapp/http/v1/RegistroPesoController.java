@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/registro-peso")

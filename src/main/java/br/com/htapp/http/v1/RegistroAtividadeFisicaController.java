@@ -1,6 +1,5 @@
 package br.com.htapp.http.v1;
 
-import br.com.htapp.http.domain.PessoaDTO;
 import br.com.htapp.http.domain.RegistroAtividadeFisicaDTO;
 import br.com.htapp.usecase.RegistroAtividadeFisicaUsecase;
 import io.swagger.annotations.Api;
