@@ -13,6 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/api/v1/registro-peso")
 @Api(tags = "Monitoramento Peso", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin
 public class RegistroPesoController {
 
     @Autowired

@@ -14,6 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/api/v1/registro-refeicao")
 @Api(tags = "Monitoramento Refeicao", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin
 public class RegistroRefeicaoController {
 
     @Autowired

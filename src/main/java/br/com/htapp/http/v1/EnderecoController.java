@@ -17,6 +17,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/api/v1/endereco")
 @Api(tags = "Endereco", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin
 public class EnderecoController {
 
     @Autowired

@@ -13,6 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/auth")
+@CrossOrigin
 @Api(tags = "Auth", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class AuthController {
 
