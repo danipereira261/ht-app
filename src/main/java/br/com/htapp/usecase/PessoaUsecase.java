@@ -1,20 +1,16 @@
 package br.com.htapp.usecase;
 
-import br.com.htapp.database.entity.pessoa.EnderecoEntity;
 import br.com.htapp.database.entity.pessoa.PessoaEntity;
-import br.com.htapp.database.entity.pessoa.TelefoneEntity;
 import br.com.htapp.database.repository.PessoaRepository;
+import br.com.htapp.exception.LoginFailException;
 import br.com.htapp.exception.PessoaJaCadastradaException;
-import br.com.htapp.http.domain.EnderecoDTO;
+import br.com.htapp.http.domain.AuthDTO;
 import br.com.htapp.http.domain.PessoaDTO;
 import br.com.htapp.http.domain.PessoaUpdateDTO;
-import br.com.htapp.http.domain.TelefoneDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -29,12 +25,11 @@ public class PessoaUsecase {
                     PessoaEntity
                             .builder()
                             .nome(dto.getNome())
-                            .tipoSexo(dto.getTipoSexo())
+                            .sexo(dto.getSexo())
                             .dataNascimento(dto.getDataNascimento())
                             .cpf(dto.getCpf())
+                            .password(dto.getPassword())
                             .email(dto.getEmail())
-                            .telefones(dto.getTelefones().stream().map(TelefoneEntity::new).collect(Collectors.toList()))
-                            .enderecos(dto.getEnderecos().stream().map(EnderecoEntity::new).collect(Collectors.toList()))
                             .build()
             );
         } catch (DataIntegrityViolationException e) {
@@ -47,12 +42,11 @@ public class PessoaUsecase {
         return PessoaDTO
                 .builder()
                 .nome(entity.getNome())
-                .tipoSexo(entity.getTipoSexo())
+                .sexo(entity.getSexo())
                 .dataNascimento(entity.getDataNascimento())
                 .cpf(entity.getCpf())
+                .password(entity.getPassword())
                 .email(entity.getEmail())
-                .telefones(entity.getTelefones().stream().map(TelefoneDTO::new).collect(Collectors.toList()))
-                .enderecos(entity.getEnderecos().stream().map(EnderecoDTO::new).collect(Collectors.toList()))
                 .build();
     }
 
@@ -64,12 +58,33 @@ public class PessoaUsecase {
                         .builder()
                         .id(entity.getId())
                         .nome(dto.getNome())
-                        .tipoSexo(dto.getTipoSexo())
+                        .sexo(dto.getTipoSexo())
                         .dataNascimento(dto.getDataNascimento())
                         .cpf(dto.getCpf())
                         .email(dto.getEmail())
                         .build()
         );
+    }
 
+    public void findPessoaPorUsuarioESenha(AuthDTO dto) {
+        PessoaEntity entity;
+        try {
+            entity = repository.findByEmail(dto.getEmail());
+
+        } catch (Exception e) {
+            throw new LoginFailException();
+        }
+
+        if (entity == null) {
+            throw new LoginFailException();
+        }
+
+        if (!dto.getPassword().equals(entity.getPassword())) {
+            throw new LoginFailException();
+        }
+
+        if (!dto.getEmail().equals(entity.getEmail())) {
+            throw new LoginFailException();
+        }
     }
 }

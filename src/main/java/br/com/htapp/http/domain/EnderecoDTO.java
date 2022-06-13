@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
@@ -32,6 +33,8 @@ public class EnderecoDTO {
     private String uf;
     @ApiModelProperty(example = "956")
     private String numeroLogradouro;
+    @ApiModelProperty(example = "35272352807")
+    private String cpf;
 
     public EnderecoDTO(EnderecoEntity entity) {
         this.id = entity.getId();
@@ -41,6 +44,7 @@ public class EnderecoDTO {
         this.bairro = entity.getBairro();
         this.estado = entity.getEstado();
         this.uf = entity.getUf();
+        this.cpf = entity.getCpf();
         this.numeroLogradouro = entity.getNumeroLogradouro();
     }
 }

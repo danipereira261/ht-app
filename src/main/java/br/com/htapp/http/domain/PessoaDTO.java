@@ -22,7 +22,7 @@ public class PessoaDTO {
     @ApiModelProperty(example = "LUIZ HAMILTON")
     private String nome;
     @Enumerated(EnumType.STRING)
-    private TipoSexo tipoSexo;
+    private TipoSexo sexo;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @ApiModelProperty(example = "10/10/1985")
     private LocalDate dataNascimento;
@@ -30,6 +30,7 @@ public class PessoaDTO {
     private String cpf;
     @ApiModelProperty(example = "fesacaba@gmail.com")
     private String email;
+    private String password;
     private List<TelefoneDTO> telefones;
     private List<EnderecoDTO> enderecos;
 }

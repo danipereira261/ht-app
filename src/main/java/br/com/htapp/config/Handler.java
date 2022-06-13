@@ -1,5 +1,6 @@
 package br.com.htapp.config;
 
+import br.com.htapp.exception.LoginFailException;
 import br.com.htapp.exception.PessoaJaCadastradaException;
 import br.com.htapp.http.domain.DefaultError;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,15 @@ public class Handler extends ResponseEntityExceptionHandler {
                 DefaultError
                         .builder()
                         .status("CPF JA CADASTRADO NA BASE DE DADOS")
+                        .build()
+        );
+    }
+    @ExceptionHandler(value = LoginFailException.class)
+    public ResponseEntity<DefaultError> loginFailException() {
+        return ResponseEntity.badRequest().body(
+                DefaultError
+                        .builder()
+                        .status("Login invalido")
                         .build()
         );
     }

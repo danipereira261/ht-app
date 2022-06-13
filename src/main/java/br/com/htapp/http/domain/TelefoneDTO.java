@@ -22,9 +22,12 @@ public class TelefoneDTO {
     private String numero;
     @Enumerated(EnumType.STRING)
     private TipoTelefone tipoTelefone;
+    @ApiModelProperty(example = "35272352807")
+    private String cpf;
 
     public TelefoneDTO(TelefoneEntity entity) {
         this.id = entity.getId();
+        this.cpf = entity.getCpf();
         this.numero = entity.getNumero();
         this.tipoTelefone = entity.getTipoTelefone();
     }

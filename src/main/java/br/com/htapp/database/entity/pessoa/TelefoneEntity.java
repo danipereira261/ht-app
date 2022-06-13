@@ -29,7 +29,11 @@ public class TelefoneEntity {
     @Enumerated(EnumType.STRING)
     private TipoTelefone tipoTelefone;
 
+    @Column(name = "NR_CPF", unique = true)
+    private String cpf;
+
     public TelefoneEntity(TelefoneDTO dto) {
+        this.cpf = dto.getCpf();
         this.numero = dto.getNumero();
         this.tipoTelefone = dto.getTipoTelefone();
     }

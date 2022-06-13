@@ -44,6 +44,9 @@ public class EnderecoEntity {
     @Column(name = "NUMERO_LOGRADOURO")
     private String numeroLogradouro;
 
+    @Column(name = "NR_CPF")
+    private String cpf;
+
     public EnderecoEntity(EnderecoDTO dto) {
         this.cep = dto.getCep();
         this.rua = dto.getRua();
@@ -51,6 +54,7 @@ public class EnderecoEntity {
         this.bairro = dto.getBairro();
         this.estado = dto.getEstado();
         this.uf = dto.getUf();
+        this.cpf = dto.getCpf();
         this.numeroLogradouro = dto.getNumeroLogradouro();
     }
 }

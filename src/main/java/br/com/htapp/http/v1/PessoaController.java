@@ -23,6 +23,7 @@ public class PessoaController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void save(@RequestBody PessoaDTO dto) {
+        log.debug(dto.toString());
         usecase.save(dto);
     }
 
