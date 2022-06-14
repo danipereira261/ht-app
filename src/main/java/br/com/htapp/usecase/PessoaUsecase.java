@@ -66,7 +66,7 @@ public class PessoaUsecase {
         );
     }
 
-    public void findPessoaPorUsuarioESenha(AuthDTO dto) {
+    public PessoaEntity findPessoaPorUsuarioESenha(AuthDTO dto) {
         PessoaEntity entity;
         try {
             entity = repository.findByEmail(dto.getEmail());
@@ -86,5 +86,6 @@ public class PessoaUsecase {
         if (!dto.getEmail().equals(entity.getEmail())) {
             throw new LoginFailException();
         }
+        return entity;
     }
 }

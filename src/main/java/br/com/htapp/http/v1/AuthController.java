@@ -1,5 +1,6 @@
 package br.com.htapp.http.v1;
 
+import br.com.htapp.database.entity.pessoa.PessoaEntity;
 import br.com.htapp.http.domain.AuthDTO;
 import br.com.htapp.usecase.PessoaUsecase;
 import io.swagger.annotations.Api;
@@ -22,7 +23,7 @@ public class AuthController {
 
     @PostMapping(path = "/token")
     @ResponseStatus(HttpStatus.OK)
-    public void token(@RequestBody AuthDTO dto) {
-        pessoaUsecase.findPessoaPorUsuarioESenha(dto);
+    public PessoaEntity token(@RequestBody AuthDTO dto) {
+        return pessoaUsecase.findPessoaPorUsuarioESenha(dto);
     }
 }

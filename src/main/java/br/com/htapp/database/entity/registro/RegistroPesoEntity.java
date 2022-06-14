@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -23,7 +24,7 @@ public class RegistroPesoEntity {
     private long id;
 
     @Column(name = "DT_REGISTRO")
-    private LocalDateTime dataRegistro;
+    private LocalDate dataRegistro;
 
     @Column(name = "PESO")
     private Double peso;

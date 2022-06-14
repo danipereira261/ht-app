@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -19,10 +19,14 @@ public class RegistroPesoUsecase {
     public void save(RegistroPesoDTO dto) {
         repository.save(RegistroPesoEntity
                 .builder()
-                .dataRegistro(LocalDateTime.now())
+                .dataRegistro(dto.getDataRegistro())
                 .peso(dto.getPeso())
                 .cpf(dto.getCpf())
                 .build()
         );
+    }
+
+    public List<RegistroPesoEntity> findByCpf(String cpf){
+        return repository.findByCpf(cpf);
     }
 }
