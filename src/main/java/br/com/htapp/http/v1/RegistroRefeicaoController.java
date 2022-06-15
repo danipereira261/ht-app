@@ -39,7 +39,7 @@ public class RegistroRefeicaoController {
     }
 
     @DeleteMapping
-    public void removeByCpf(@RequestParam("id") @ApiParam(example = "1") Long id){
+    public void removeById(@RequestParam("id") @ApiParam(example = "1") Long id){
         usecase.removeById(id);
     }
 }
