@@ -35,4 +35,9 @@ public class RegistroPesoController {
     public List<RegistroPesoEntity> findByCpf(@RequestParam("cpf") @ApiParam(example = "35272352807") String cpf) {
         return usecase.findByCpf(cpf);
     }
+
+    @DeleteMapping
+    public void removeByCpf(@RequestParam("id") @ApiParam(example = "1") Long id){
+        usecase.removeById(id);
+    }
 }

@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 public class RegistroPressaoArterialDTO {
 
     @ApiModelProperty(example = "12/15")
-    private String medicaoPressao;
+    private String medicao;
     @ApiModelProperty(example = "35272352807")
     private String cpf;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

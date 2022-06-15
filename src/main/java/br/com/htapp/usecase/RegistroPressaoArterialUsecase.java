@@ -23,12 +23,16 @@ public class RegistroPressaoArterialUsecase {
                 RegistroPressaoArterialEntity
                         .builder()
                         .dataRegistro(dto.getDataRegistro())
-                        .medicao(dto.getMedicaoPressao())
+                        .medicao(dto.getMedicao())
                         .cpf(dto.getCpf())
                         .build());
     }
 
     public List<RegistroPressaoArterialEntity> findByCpf(String cpf) {
         return repository.findByCpf(cpf);
+    }
+
+    public void removeById(Long id) {
+        repository.deleteById(id);
     }
 }

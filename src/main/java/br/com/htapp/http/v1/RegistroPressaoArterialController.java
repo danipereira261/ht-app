@@ -37,4 +37,8 @@ public class RegistroPressaoArterialController {
         return usecase.findByCpf(cpf);
     }
 
+    @DeleteMapping
+    public void removeByCpf(@RequestParam("id") @ApiParam(example = "1") Long id){
+        usecase.removeById(id);
+    }
 }

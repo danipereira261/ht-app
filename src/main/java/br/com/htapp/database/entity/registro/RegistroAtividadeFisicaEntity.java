@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -23,7 +23,7 @@ public class RegistroAtividadeFisicaEntity {
     private long id;
 
     @Column(name = "DT_REGISTRO")
-    private LocalDateTime dataRegistro;
+    private LocalDate dataRegistro;
 
     @Column(name = "DURACAO")
     private Integer duracaoEmMinutos;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class RegistroRefeicaoUsecase {
@@ -18,12 +19,20 @@ public class RegistroRefeicaoUsecase {
         repository.save(
                 RegistroRefeicaoEntity
                         .builder()
-                        .dataRegistro(LocalDateTime.now())
+                        .dataRegistro(dto.getDataRegistro())
                         .tipoRefeicao(dto.getTipoRefeicao())
                         .quantidadeEmGramas(dto.getQuantidadeEmGramas())
                         .descricao(dto.getDescricao())
                         .cpf(dto.getCpf())
                         .build());
+    }
+
+    public List<RegistroRefeicaoEntity> findByCpf(String cpf) {
+        return repository.findByCpf(cpf);
+    }
+
+    public void removeById(Long id) {
+        repository.deleteById(id);
     }
 }
 

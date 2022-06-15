@@ -29,4 +29,8 @@ public class RegistroPesoUsecase {
     public List<RegistroPesoEntity> findByCpf(String cpf){
         return repository.findByCpf(cpf);
     }
+
+    public void removeById(Long id) {
+        repository.deleteById(id);
+    }
 }
